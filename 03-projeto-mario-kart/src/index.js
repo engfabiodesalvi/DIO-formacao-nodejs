@@ -236,6 +236,6 @@ main();
 
 /*
     - Confronto
-        - sortear aleatoriamente se é um casc (-1 ponto) ou uma bomba (-2 pontos)
+        - sortear aleatoriamente se é um casco (-1 ponto) ou uma bomba (-2 pontos)
         - quem vence o confronto ganha um turbo (+ 1 ponto) aleatoriamente.
 */
