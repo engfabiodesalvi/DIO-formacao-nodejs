@@ -55,7 +55,7 @@ async function getRandomBlock(){
 }
 
 // Functions Chains
-async function playRaceEngine(character1, character2){
+async function playRaceEngine(playersForRace){
     // For
     // const -> não pode ser modificado
     // let -> pode ser modificado
@@ -67,12 +67,21 @@ async function playRaceEngine(character1, character2){
         console.log(`Bloco: ${block}`);
 
         // rolar os dados
-        let diceResult1 = await rollDice();
-        let diceResult2 = await rollDice();
+        //let diceResult1 = await rollDice();
+        //let diceResult2 = await rollDice();
+        let diceResult = []
+        for (let index = 0; index < playersForRace.length; index++) {
+            diceResult.push(await rollDice());
+            console.log(`DiceResult Jogador ${index+1} = ${diceResult[diceResult.length-1]}`);
+        }        
 
         // teste de habilidade
-        let totalTestSkill1 = 0;
-        let totalTestSkill2 = 0;
+        //let totalTestSkill1 = 0;
+        //let totalTestSkill2 = 0;
+        let totalTestSkill = [];
+
+
+        continue; // skip the rest of the code
 
         // Testando Blocos - if
         if(block == "RETA"){
@@ -292,7 +301,7 @@ async function getPlayersForRace(numberOfPlayers) {
                 // Math.random() -> [0, 1) - 0->inclusivo e 1-> exclusivo
                 // Math.floor(number) -> maior inteiro menor ou igual ao argumento
                 numPlayer = Math.floor(Math.random() * (max - min + 1)) + min;
-                console.log(`Jogador ${jogador} - random ${numPlayer}`);
+                //console.log(`Jogador ${jogador} - random ${numPlayer}`);
                 playerSelected = true
                 if (playersForRace.length > 0){
                     for(let indexRace = 0; indexRace < playersForRace.length; indexRace++) {
@@ -350,6 +359,8 @@ async function getMsgCorrida(players) {
     console.log(msgCorrida);
     
     //await playRaceEngine(player1, player2);
+    await playRaceEngine(playersForRace);
+
     //await declareWinner(player1, player2);
 })();
 
