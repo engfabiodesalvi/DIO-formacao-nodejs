@@ -427,12 +427,15 @@ async function declareWinner(charactes) {
 }
 
 // Print all players
-async function printAllPlayers(players) {
-
-    console.log("🏁🤩 Lista dos jogadores com suas características!");
+async function printAllCharacters(charcters) {
+    let msgAllCharacters = "";
     console.log("");
-    for(let index = 0; index < players.length; index++) {
-        console.log(`${index + 1} - ${players[index].NOME}. [velocidade: ${players[index].VELOCIDADE}, manobrabilidade: ${players[index].MANOBRABILIDADE}, poder: ${players[index].PODER}].`);
+    console.log("🏁🤩 Lista dos personagens disponíveis e suas características!");
+    console.log("");
+    for(let index = 0; index < charcters.length; index++) {
+        msgAllCharacters = `${index + 1} - ${charcters[index].NOME}. [velocidade: ${charcters[index].VELOCIDADE},`;
+        msgAllCharacters += `manobrabilidade: ${charcters[index].MANOBRABILIDADE}, poder: ${charcters[index].PODER}].`;
+        console.log(msgAllCharacters);
     }
     console.log("");
 
@@ -578,7 +581,12 @@ async function getMsgCorrida(players) {
 // Auto invoke
 (async function main() {
 
-    await printAllPlayers(players); 
+    console.log("");
+    console.log("🏁🕹️  Desafio de projeto do Felipão: Mario Kart.JS.");
+    console.log("🏁🕹️  Modificado por Fabio Toledo Bonemer De Salvi.");
+    console.log("");
+    
+    await printAllCharacters(players); 
 
     let numberOfPlayers = await getNumberOfPlayers(2);   
 
