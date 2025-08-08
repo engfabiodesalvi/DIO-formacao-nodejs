@@ -110,7 +110,7 @@
   <li> Ao vencedor do confronto somar aleatoriamente um turbo (+ 1 ponto)</li>
 </ul>
 
-<H2>Modificações realizadas:</H2>
+<H2>🤺 Modificações realizadas:</H2>
 
 <p>O código original disponível no diretório gitHub foi utilizado com ponto de partida visto que é o mesmo código apresentado nas video aulas.</p>
 
