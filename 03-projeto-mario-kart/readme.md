@@ -125,7 +125,7 @@
     <li>Sorteio aleatório entre um casco (-1 ponto) ou uma bomba (-2 pontos)</li>
     <li>Soma aleatória de um turbo (+ 1 ponto) à pontuaçã do vencedor.</li>
   </ul>
-  <li>Os persnagens foram definidos como um array de objetos, sendo incluído laços de repetição for para acessar os elementos.</li>
+  <li>Os personagens foram definidos como um array de objetos, sendo incluído laços de repetição for para acessar os elementos.</li>
   <li>Foi incluído rotinas para determinar o valor máximo da pontuação e identificar os vencedores, perdedores e tratativas de pontuação.</li>
 </ul>
 
