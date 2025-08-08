@@ -119,10 +119,10 @@
 <ul>
   <li>Alguns exemplos explanados nas video aulas foram incluídos em forma de comentário.</li>
   <li>Foi incluído a possibilidade de jogar com 2 a 6 personagens.</li>
-  <li>Foi incluído a possibilidade de escolher manualmente ou aleatoriamente os personagens.</li>
+  <li>Foi incluído a possibilidade de escolher manualmente, ou aleatoriamente, os personagens.</li>
   <li>Para o bloco CONFRONTO a regra de pontuação foi modificada da seguinte forma:</li>
   <ul>
-    <li>Sorteio aleatório entre um casco (-1 ponto) ou uma bomba (-2 pontos)</li>
+    <li>Sorteio aleatório entre um casco (-1 ponto) ou uma bomba (-2 pontos).</li>
     <li>Soma aleatória de um turbo (+ 1 ponto) à pontuaçã do vencedor.</li>
   </ul>
   <li>Os personagens foram definidos como um array de objetos, sendo incluído laços de repetição for para acessar os elementos.</li>
