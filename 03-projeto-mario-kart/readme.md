@@ -112,7 +112,7 @@
 
 <H2>🤺 Modificações realizadas:</H2>
 
-<p>O código original disponível no diretório gitHub foi utilizado com ponto de partida visto que é o mesmo código apresentado nas video aulas.</p>
+<p>O código original disponível no diretório gitHub foi utilizado como ponto de partida visto que é o mesmo código apresentado nas video aulas.</p>
 
 <p>As seguintes modifiacações foram realizadas:</p>
 
