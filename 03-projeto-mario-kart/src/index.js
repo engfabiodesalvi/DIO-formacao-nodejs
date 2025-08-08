@@ -259,7 +259,7 @@ async function playRaceEngine(playersForRace){
                     powerResult[index] : maxPower
             }
 
-            // Identificando os vencedores e perdedores da etapa!
+            // Identificando os vencedores e perdedores do confronto!
             let vencedores = [];
             let perdedores = [];            
             for(index = 0; index < playersForRace.length; index++) {
@@ -380,19 +380,50 @@ async function logRollResult(characterName, block, diceResult, attribute) {
 }
 
 // Game Over - Clean Ifs
-async function declareWinner(character1, character2) {
+async function declareWinner(charactes) {
     console.log("Resultado final:");
-    console.log(`${character1.NOME}: ${character1.PONTOS} ponto(s).`);
-    console.log(`${character2.NOME}: ${character2.PONTOS} ponto(s).`);
+    //console.log(`${character1.NOME}: ${character1.PONTOS} ponto(s).`);
+    //console.log(`${character2.NOME}: ${character2.PONTOS} ponto(s).`);
+    for(let index = 0; index < charactes.length; index++) {
+        console.log(`${charactes[index].NOME}: ${charactes[index].PONTOS} ponto(s).`);
+    }
+    console.log("");
 
     // If encadeado
+    /*    
     if (character1.PONTOS > character2.PONTOS) 
         console.log(`\n${character1.NOME} venceu a corrida! Parabéns! 🏆!`);
     else if ((character2.PONTOS > character1.PONTOS)) 
         console.log(`\n${character2.NOME} venceu a corrida! Parabéns! 🏆!`);        
     else 
         console.log("A corrida terminou em empate!");
+    */
+
+    // Obtendo a pontuação máxima
+    let maxPontos = 0;
+    for(let index = 0; index < charactes.length; index++) {
+        maxPontos =  charactes[index].PONTOS > maxPontos ? 
+            charactes[index].PONTOS : maxPontos;
+            
+    }  
+
+    // Identificando os vencedores da corrida!            
+    let vencedores = [];    
+    for(let index = 0; index < charactes.length; index++) {
+        if (charactes[index].PONTOS >= maxPontos) {                                                   
+            vencedores.push({INDEX: index, ...charactes[index]}); // ... spread syntax
+        }
+    }        
     
+    // Msg com os nomes dos vencedores
+    let msgPlayerNames = await getMsgWithPlayers(vencedores);
+    if (vencedores.length == 1) {
+        console.log(`${msgPlayerNames} venceu a corrida! Parabéns! 🏆!`)                  
+    } else if (vencedores.length < charactes.length) {
+        console.log(`${msgPlayerNames} venceram a corrida! Parabéns! 🏆!`)
+    } else {
+        console.log("A corrida terminou em empate!");        
+    }
 }
 
 // Print all players
@@ -562,6 +593,7 @@ async function getMsgCorrida(players) {
     await playRaceEngine(playersForRace);
 
     //await declareWinner(player1, player2);
+    await declareWinner(playersForRace);
 })();
 
 /*
