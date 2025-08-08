@@ -97,12 +97,12 @@
   </li>
 </ul>
 
-<b>Condição de vitória:</b>
+<b> Condição de vitória:</b>
 
 <input type="checkbox" id="vitoria-item" />
 <label for="vitoria-item">Ao final, vence quem acumulou mais pontos</label>
 
-<H2>Tarefa a ser realizada:</H2>
+<H2>💪 Tarefa a ser realizada:</H2>
 
 <p>Modificar a regra de pontuação do bloco CONFRONTO da seguinte forma:</p>
 <ul>
