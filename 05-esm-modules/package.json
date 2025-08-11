@@ -1,7 +1,7 @@
 {
   "name": "05-esm-modules",
   "version": "1.0.0",
-  "description": "",
+  "description": "Working with ESM-EcmaScript Modules ",
   "main": "index.js",
   "type": "module",
   "scripts": {

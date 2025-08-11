@@ -10,6 +10,10 @@ export const getDataFromApi = () => {
   console.log("dados da api sendo buscados...");
 };
 
+export function getDataFromApi3() {
+  console.log("dados da api sendo buscados...");
+}
+
 // or
 
 // export through objects

@@ -22,4 +22,5 @@ connectToDatabase("my-database");
 
 api.getDataFromApi();
 api.getDataFromApi2();
+api.getDataFromApi3();
 disconnectDatabase();
