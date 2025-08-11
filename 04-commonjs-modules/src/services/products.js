@@ -1,3 +1,4 @@
+// Modified by Fabio Toledo Bonemer De Salvi
 // todas as funções que lidam com produto
 const productType = {
   version: "digital",
@@ -10,7 +11,8 @@ const apiURL = {
 };
 
 async function getFullName(codeId, productName) {
-  console.log("productX: " + codeId + "--" + productName);
+  //console.log("\n");
+  console.log("Product: " + codeId + "--" + productName);
   await doBreakLine();
 }
 
@@ -23,6 +25,7 @@ async function getProductLabel(productName) {
   console.log("Product " + productName);
 }
 
+// Export functions to another files
 module.exports = {
   getFullName,
   getProductLabel,
