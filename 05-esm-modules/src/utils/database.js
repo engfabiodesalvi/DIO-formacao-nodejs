@@ -12,8 +12,17 @@ async function disconnectDatabase() {
   console.log("desconectando do banco de dados");
 }
 
-export { connectToDatabase, disconnectDatabase, databaseType };
+// EcmaScript Modules (ESM)
 
+//export for two or more things
+//export { disconnectDatabase, databaseType };
+//export { connectToDatabase, disconnectDatabase, databaseType };
+export { disconnectDatabase, databaseType };
+
+// export default for one thing
+export default connectToDatabase;
+
+// commonjs (CJS)
 // module.exports = {
 //   connectToDatabase,
 //   disconnectDatabase
