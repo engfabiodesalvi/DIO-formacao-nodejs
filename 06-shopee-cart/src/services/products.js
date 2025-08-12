@@ -1,14 +1,15 @@
-import createItem from "./services/item.js";
+import createItem from "./item.js";
 
 async function getProducts() {
     // Adding list of products
     const myProducts = [];
 
     //criando dois itens
-    const item1 = await createItem(0,"hotwheels ferrari",["toy","miniature car"], 20.99, 5);
-    const item2 = await createItem(1,"hotwheels lamborghini",["toy","miniature car"], 39.99, 6);
-
+    const item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);
+    //const item2 = await createItem(1,"hotwheels lamborghini",["toys", "miniature"], 39.99, 6);
+    
     myProducts.push(item1);
+    /*
     myProducts.push(item2);
     myProducts.push(await createItem(myProducts.length,"book1",["book"], 45.4, 1));
     myProducts.push(await createItem(myProducts.length,"book2",["book"], 10.2, 2));
@@ -30,7 +31,7 @@ async function getProducts() {
     myProducts.push(await createItem(myProducts.length,"toys",["pet supplies"], 5.0, 150));
     myProducts.push(await createItem(myProducts.length,"grooming",["pet supplies"], 1.0, 20));
     myProducts.push(await createItem(myProducts.length,"bedding",["pet supplies"], 15.0, 50));
-
+    */
     return myProducts;
 }
 
