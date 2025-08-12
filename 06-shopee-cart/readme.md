@@ -89,6 +89,12 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 - Como organizar pensamento lógico e funcional
 - Base para organizar projetos
 
+## Modificações
+- adicionar itens
+- criar wishlist com itens favoritados
+- ordenar os itens por preço
+- simular a função dos filtros (criar elementos diferentes e utilizar filtros)
+- criar uma lista de produtos
 <!--START_SECTION:footer-->
 
 <br />
