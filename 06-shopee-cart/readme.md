@@ -90,8 +90,10 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 - Base para organizar projetos
 
 ## Modificações
-- adicionar itens
-- criar wishlist com itens favoritados
+- adicionar indice ao produto
+- adicionar categoria a produto
+- adicionar itens a itens existentes
+- criar wishlist com itens favoritados?
 - ordenar os itens por preço
 - simular a função dos filtros (criar elementos diferentes e utilizar filtros)
 - criar uma lista de produtos
