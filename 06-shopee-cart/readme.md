@@ -90,13 +90,13 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 - Base para organizar projetos
 
 ## Modificações
-- adicionar indice ao produto
-- adicionar categoria a produto
-- adicionar itens a itens existentes
+- adicionar código aos produtos OK
+- adicionar categoria aos produtos OK
+- adicionar itens a itens existentes OK
 - criar wishlist com itens favoritados?
 - ordenar os itens por preço
 - simular a função dos filtros (criar elementos diferentes e utilizar filtros)
-- criar uma lista de produtos
+- criar uma lista de produtos OK
 <!--START_SECTION:footer-->
 
 <br />

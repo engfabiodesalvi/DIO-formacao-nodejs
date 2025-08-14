@@ -2,15 +2,15 @@ import createItem from "./item.js";
 
 async function getProducts() {
     // Adding list of products
-    const myProducts = [];
+    let myProducts = [];
 
     //criando dois itens
-    const item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);
-    //const item2 = await createItem(1,"hotwheels lamborghini",["toys", "miniature"], 39.99, 6);
+    let item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);
+    let item2 = await createItem(1,"hotwheels lamborghini",["toys", "miniature"], 39.99, 6);
     
-    myProducts.push(item1);
-    /*
-    myProducts.push(item2);
+    myProducts.push({...item1});
+    
+    myProducts.push({...item2});
     myProducts.push(await createItem(myProducts.length,"book1",["book"], 45.4, 1));
     myProducts.push(await createItem(myProducts.length,"book2",["book"], 10.2, 2));
     myProducts.push(await createItem(myProducts.length,"book3",["book"], 5.0, 0));
@@ -31,12 +31,27 @@ async function getProducts() {
     myProducts.push(await createItem(myProducts.length,"toys",["pet supplies"], 5.0, 150));
     myProducts.push(await createItem(myProducts.length,"grooming",["pet supplies"], 1.0, 20));
     myProducts.push(await createItem(myProducts.length,"bedding",["pet supplies"], 15.0, 50));
-    */
+    
     return myProducts;
 }
 
+async function showAllProducts(myProducts) {
+    //const myProducts = await getProducts();
+        
+    // display all products
+    console.log("\nProducts available in the system!\n");
+    //console.table(myProducts);
+
+    console.log("CODE | NAME | CATEGORY | PRICE | QUANTITY");
+    myProducts.forEach(function(item, index){
+        //console.log(`${JSON.stringify(item,null,2)}`);
+        console.log(`${item.index}. ${item.name} | ${item.category} | R$ ${item.price} | ${item.quantity}x`);
+    });
+}
+
 export {
-    getProducts
+    getProducts,
+    showAllProducts
 }
 
 
