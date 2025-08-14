@@ -35,18 +35,87 @@ async function getProducts() {
     return myProducts;
 }
 
-async function showAllProducts(myProducts) {
-    //const myProducts = await getProducts();
+// sortting an array of string
+function sortArrayString(array, order = 'asc') {
+    const newArray = [...array];
+
+    newArray.sort((a, b) => {
+        const valA = a;
+        const valB = b; 
+        const options = {sensitivity: "accent", numeric: true};   
         
+        if (order === 'asc')
+            return valA.localeCompare(valB, options);
+        else
+            return valB.localeCompare(valA, options);
+    });      
+
+    return newArray;
+}
+
+// sortting an object with an array of objects
+async function sortArrayOfObjects(myProducts, sortedBy, order = 'asc') {
+    const newMyProducts = [...myProducts];
+
+    newMyProducts.forEach((item, index, arr) => {
+        if (sortedBy === 'category' && typeof item[sortedBy] === 'object') {
+            item[sortedBy] = sortArrayString(item[sortedBy], order);
+        }
+    });
+
+    newMyProducts.sort((a, b) => { 
+        let valA = a[sortedBy];
+        let valB = b[sortedBy];
+        const options = {sensitivity: "accent", numeric: true};
+
+        if (typeof valA === 'string' && typeof valB === 'string') {
+            // For string properties, sue localeCompare for proper alphabetical sorting
+            if (order === 'asc') {
+                //console.log("ok");
+                return valA.localeCompare(valB, options);
+            } else
+                return valB.localeCompare(valA, options);
+        } else if (typeof valA === 'object' && typeof valB === 'object') { // array of strings
+            // For string properties, sue localeCompare for proper alphabetical sorting
+            //valA = sortArrayString(valA, order);
+            //valB = sortArrayString(valB, order);
+            
+            console.log(`${valA[0]} - ${valB[0]}`);
+            
+            if (order === 'asc')
+                return valA[0].localeCompare(valB[0], options);
+            else
+                return valB[0].localeCompare(valA[0], options);   
+
+        } else {
+            // For numeric or ther comparable types
+            if (order === "asc") 
+                return valA - valB;
+            else
+                return valB - valA;
+        }
+    });
+    //console.log(`${JSON.stringify(newMyProducts,null,2)}`);
+    return newMyProducts;
+}
+
+async function showAllProducts(myProducts, sortedBy, order = 'asc') {
+    //const myProducts = await getProducts();    
+
     // display all products
     console.log("\nProducts available in the system!\n");
     //console.table(myProducts);
+    
+    // sort myProducts by sortedBy and order
+    myProducts = await sortArrayOfObjects(myProducts, sortedBy, order);    
 
-    console.log("CODE | NAME | CATEGORY | PRICE | QUANTITY");
-    myProducts.forEach(function(item, index){
-        //console.log(`${JSON.stringify(item,null,2)}`);
-        console.log(`${item.index}. ${item.name} | ${item.category} | R$ ${item.price} | ${item.quantity}x`);
-    });
+    // console.log("INDEX | CODE | NAME | CATEGORY | PRICE | QUANTITY");
+    // myProducts.forEach(function(item, index){
+    //     //console.log(`${JSON.stringify(item,null,2)}`);
+    //     console.log(`${index} | ${item.index} | ${item.name} | ${item.category} | R$ ${item.price} | ${item.quantity}x`);
+    // });  
+
+    console.table(myProducts);
 }
 
 export {

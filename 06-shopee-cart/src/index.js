@@ -12,7 +12,7 @@ const myProducts = await getProducts();
 
 // show all products
 console.log("\n-----------------------------------");
-await showAllProducts(myProducts);
+await showAllProducts(myProducts, "name");
 
 //criando dois itens
 //const item1 = await createItem(0,"hotwheels ferrari",["toys"], 20.99, 5);
@@ -46,10 +46,10 @@ await cartService.displaycart(myCart);
 
 // show all products
 console.log("\n-----------------------------------");
-await showAllProducts(myProducts);
+await showAllProducts(myProducts, "name");
 
 console.log("\n-----------------------------------");
-console.log("\nRemovendo produtos no carrinho.\n");
+console.log("\nRemovendo produtos do carrinho.\n");
 
 // simulate the minus button click 1 time
 await cartService.removeOneItem(myCart, myProducts[0]);
@@ -86,4 +86,4 @@ await cartService.displaycart(myCart);
 
 // show all products
 console.log("\n-----------------------------------");
-await showAllProducts(myProducts);
+await showAllProducts(myProducts,"quantity",'asc');
