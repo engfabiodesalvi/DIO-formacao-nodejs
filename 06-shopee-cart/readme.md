@@ -118,11 +118,11 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
       import * as cartService from "./services/cart.js";\
       await cartService.addItems(myCart, findItemByCode(myProducts, 10), 6);\  
   
-- A função de remover item do carrinho de compras foi modifica.
+- A função de remover item do carrinho de compras foi modificada.
 
-  A função busca um produto no carrinho de compras realizando a remoção de um item.\
-  Caso o item fique com quantidade nula ele será removido do carrinho de compras.\
-  Cada item removido da lista de compras retrnará á lista de prdutos.\
+  A função busca um produto no carrinho de compras para realizar a remoção de um item.\
+  Caso o item fique com quantidade igual a zero, ele será removido do carrinho de compras.\
+  Cada item removido da lista de compras retornará á lista de produtos.\
   Foi adicionado uma função que remove 'n' itens de uma única vez. Esta função só removerá os itens caso possua unidades na lista de compras.\
   Remova um item da seguinte forma:\
       import * as cartService from "./services/cart.js";\
