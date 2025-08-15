@@ -99,7 +99,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 
 - Foi adicionado os campos 'code' e 'category' ao objeto 'item'.
 
-        Utilize a função 'createItem(code, name, category, price, quantity)' no arquivo './services/item.js'.\ 
+        Utilize a função 'createItem(code, name, category, price, quantity)' no arquivo './services/item.js'.\
         Desta forma é possível identificar os produtos de forma única entre a lista de produto, a lista do carrinho de compras e da lista de desejos utilizando um filtro por categoria.\
         O campo categoria aceita mais de uma categoria.\
         Crie um item da seguinte forma:\
