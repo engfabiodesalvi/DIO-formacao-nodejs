@@ -95,7 +95,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 ## 💪 Modificações Realizadas por Fabio Toledo Bonemer De Salvi
 - Foi adicionado uma função que gera uma lista de produtos.
     
-  Função 'getProducts()' no arquivo './services/products.js'.\
+  Função 'getProducts()' no arquivo './services/products.js'.
 
 - Foi adicionado os campos 'code' e 'category' ao objeto 'item'.
 
@@ -103,7 +103,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
   Desta forma é possível identificar os produtos de forma única entre a lista de produto, a lista do carrinho de compras e da lista de desejos utilizando um filtro por categoria.\
   O campo categoria aceita mais de uma categoria.\
   Crie um item da seguinte forma:\
-    let item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);\
+    let item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);
   
 - A função de adicionar item ao carrinho de compras foi modificada.
   
@@ -116,7 +116,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
       await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));\
   Adicione 'n' itens da seguinte forma:\
       import * as cartService from "./services/cart.js";\
-      await cartService.addItems(myCart, findItemByCode(myProducts, 10), 6);\  
+      await cartService.addItems(myCart, findItemByCode(myProducts, 10), 6);  
   
 - A função de remover item do carrinho de compras foi modificada.
 
@@ -129,7 +129,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
       await cartService.removeOneItem(myCart, findItemByCode(myProducts, 16));\
   Remova 'n' itens da seguinte forma:\
       import * as cartService from "./services/cart.js";\
-      await cartService.removeItems(myCart, findItemByCode(myProducts, 16), 4);\ 
+      await cartService.removeItems(myCart, findItemByCode(myProducts, 16), 4);
 
 - A função de adicionar item á lista de desejos foi adicionada.
 
@@ -137,7 +137,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
   O item será adicionado á lista de desejos caso não seja encontrado.\
   Adicine um item da seguinte forma:\
       import * as wishService from "./services/wishlist.js";\
-      await wishService.addItem(myWishList, findItemByCode(myProducts, 10));\
+      await wishService.addItem(myWishList, findItemByCode(myProducts, 10));
   
 - A função de remover item á lista de desejos foi adicinada.
 
@@ -145,7 +145,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
   O item será removido da lista de desejos caso seja encontrado.\
   Remova um item da seguinte forma:\
       import * as wishService from "./services/wishlist.js";\
-      await wishService.removeItem(myWishList, findItemByCode(myProducts, 10));\
+      await wishService.removeItem(myWishList, findItemByCode(myProducts, 10));
     
 - Os produtos podem ser ordenados utilizando qualquer um dos atributos do objeto item.
 
@@ -153,14 +153,14 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
    Mostrando a lista de produtos, ordenada pelo campo 'nome' de forma cescente:\
       import { getProducts, showAllProducts } from "./services/products.js";\
       const myProducts = await getProducts();\
-      await showAllProducts(myProducts, "name", "asc");\   
+      await showAllProducts(myProducts, "name", "asc");
 
 - Foi adicinado a função buscar por código.
 
   A função utiliza o código do item na busca deste item nas listas: de produtos, do carrinho de compras e de desejos.\
   Busque um produto da seguinte forma:\
       import * as cartService from "./services/cart.js";\
-      await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));\     
+      await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));
 
   
 <!--START_SECTION:footer-->
