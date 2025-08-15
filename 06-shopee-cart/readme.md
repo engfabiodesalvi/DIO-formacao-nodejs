@@ -107,60 +107,60 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
   
 - A função de adicionar item ao carrinho de compras foi modificada.
   
-  A função verifica se um item já foi adicionado ao carrinho de compras.\
-  Se o item já foi adicionado ao carrinho de compras, ele adicionará mais um item caso possua este item em estoque.\
-  Ao adicionar um item ao carrinho de compras é removido um item do estoque.\
-  Foi adicionado uma função que adiciona 'n' itens de uma única vez. Esta função só adicionará os itens caso possua unidades em estoque.\
-  Adicione um item da seguinte forma:\
-      import * as cartService from "./services/cart.js";\
-      await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));\
-  Adicione 'n' itens da seguinte forma:\
-      import * as cartService from "./services/cart.js";\
-      await cartService.addItems(myCart, findItemByCode(myProducts, 10), 6);  
+  &nbsp;&nbsp;A função verifica se um item já foi adicionado ao carrinho de compras.\
+  &nbsp;&nbsp;Se o item já foi adicionado ao carrinho de compras, ele adicionará mais um item caso possua este item em estoque.\
+  &nbsp;&nbsp;Ao adicionar um item ao carrinho de compras é removido um item do estoque.\
+  &nbsp;&nbsp;Foi adicionado uma função que adiciona 'n' itens de uma única vez. Esta função só adicionará os itens caso possua unidades em estoque.\
+  &nbsp;&nbsp;Adicione um item da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as cartService from "./services/cart.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));\
+  &nbsp;&nbsp;Adicione 'n' itens da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as cartService from "./services/cart.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await cartService.addItems(myCart, findItemByCode(myProducts, 10), 6);  
   
 - A função de remover item do carrinho de compras foi modificada.
 
-  A função busca um produto no carrinho de compras para realizar a remoção de um item.\
-  Caso o item fique com quantidade igual a zero, ele será removido do carrinho de compras.\
-  Cada item removido da lista de compras retornará á lista de produtos.\
-  Foi adicionado uma função que remove 'n' itens de uma única vez. Esta função só removerá os itens caso possua unidades na lista de compras.\
-  Remova um item da seguinte forma:\
-      import * as cartService from "./services/cart.js";\
-      await cartService.removeOneItem(myCart, findItemByCode(myProducts, 16));\
-  Remova 'n' itens da seguinte forma:\
-      import * as cartService from "./services/cart.js";\
-      await cartService.removeItems(myCart, findItemByCode(myProducts, 16), 4);
+  &nbsp;&nbsp;A função busca um produto no carrinho de compras para realizar a remoção de um item.\
+  &nbsp;&nbsp;Caso o item fique com quantidade igual a zero, ele será removido do carrinho de compras.\
+  &nbsp;&nbsp;Cada item removido da lista de compras retornará á lista de produtos.\
+  &nbsp;&nbsp;Foi adicionado uma função que remove 'n' itens de uma única vez. Esta função só removerá os itens caso possua unidades na lista de compras.\
+  &nbsp;&nbsp;Remova um item da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as cartService from "./services/cart.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await cartService.removeOneItem(myCart, findItemByCode(myProducts, 16));\
+  &nbsp;&nbsp;Remova 'n' itens da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as cartService from "./services/cart.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await cartService.removeItems(myCart, findItemByCode(myProducts, 16), 4);
 
 - A função de adicionar item á lista de desejos foi adicionada.
 
-  A função verifica se um item já foi adicionado á lista de desejos.\
-  O item será adicionado á lista de desejos caso não seja encontrado.\
-  Adicine um item da seguinte forma:\
-      import * as wishService from "./services/wishlist.js";\
-      await wishService.addItem(myWishList, findItemByCode(myProducts, 10));
+  &nbsp;&nbsp;A função verifica se um item já foi adicionado á lista de desejos.\
+  &nbsp;&nbsp;O item será adicionado á lista de desejos caso não seja encontrado.\
+  &nbsp;&nbsp;Adicine um item da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as wishService from "./services/wishlist.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await wishService.addItem(myWishList, findItemByCode(myProducts, 10));
   
 - A função de remover item á lista de desejos foi adicinada.
 
-  A função busca um produto na lista de desejos.\
-  O item será removido da lista de desejos caso seja encontrado.\
-  Remova um item da seguinte forma:\
-      import * as wishService from "./services/wishlist.js";\
-      await wishService.removeItem(myWishList, findItemByCode(myProducts, 10));
+  &nbsp;&nbsp;A função busca um produto na lista de desejos.\
+  &nbsp;&nbsp;O item será removido da lista de desejos caso seja encontrado.\
+  &nbsp;&nbsp;Remova um item da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as wishService from "./services/wishlist.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await wishService.removeItem(myWishList, findItemByCode(myProducts, 10));
     
 - Os produtos podem ser ordenados utilizando qualquer um dos atributos do objeto item.
 
-   Deve ser defino o atributo do item a ser ordenado e a ordem ascendente ou descendente dos dados na lista.\
-   Mostrando a lista de produtos, ordenada pelo campo 'nome' de forma cescente:\
-      import { getProducts, showAllProducts } from "./services/products.js";\
-      const myProducts = await getProducts();\
-      await showAllProducts(myProducts, "name", "asc");
+   &nbsp;&nbsp;Deve ser defino o atributo do item a ser ordenado e a ordem ascendente ou descendente dos dados na lista.\
+   &nbsp;&nbsp;Mostrando a lista de produtos, ordenada pelo campo 'nome' de forma cescente:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import { getProducts, showAllProducts } from "./services/products.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;const myProducts = await getProducts();\
+      &nbsp;&nbsp;&nbsp;&nbsp;await showAllProducts(myProducts, "name", "asc");
 
 - Foi adicinado a função buscar por código.
 
-  A função utiliza o código do item na busca deste item nas listas: de produtos, do carrinho de compras e de desejos.\
-  Busque um produto da seguinte forma:\
-      import * as cartService from "./services/cart.js";\
-      await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));
+  &nbsp;&nbsp;A função utiliza o código do item na busca deste item nas listas: de produtos, do carrinho de compras e de desejos.\
+  &nbsp;&nbsp;Busque um produto da seguinte forma:\
+      &nbsp;&nbsp;&nbsp;&nbsp;import * as cartService from "./services/cart.js";\
+      &nbsp;&nbsp;&nbsp;&nbsp;await cartService.addOneItem(myCart, findItemByCode(myProducts, 10));
 
   
 <!--START_SECTION:footer-->
