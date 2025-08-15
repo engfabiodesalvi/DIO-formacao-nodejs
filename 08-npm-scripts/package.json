@@ -1,7 +1,6 @@
 {
   "name": "08-npm-scripts",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,9 +8,15 @@
     "start:dev": "node src/index.js",
     "start:watch": "node --watch src/index.js",
     "test:run": "..",
-    "test:unit": ".."
+    "test:unit": "..",
+    "test": "clear && echo \"Error: no test specified\" && exit 1",
+    "iniciar": "clear && node src/index.js && mkdir dist && echo \" pasta dist criada \" "
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "doc": "docs"
+  },
+  "description": ""
 }

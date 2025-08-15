@@ -1,2 +1,8 @@
 console.log("hello estou rodando via script");
 console.log("Iniciando servidor");
+
+// line above the prompt
+//prompt $P$_$G
+
+// inital configuration
+// npm init -y
