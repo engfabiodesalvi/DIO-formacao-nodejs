@@ -95,15 +95,15 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 ## 💪 Modificações Realizadas por Fabio Toledo Bonemer De Salvi
 - Foi adicionado uma função que gera uma lista de produtos.
     
-  Função 'getProducts()' no arquivo './services/products.js'.
+    Função 'getProducts()' no arquivo './services/products.js'.
 
 - Foi adicionado os campos 'code' e 'category' ao objeto 'item'.
 
-  : Utilize a função 'createItem(code, name, category, price, quantity)' no arquivo './services/item.js'.\ 
-  : Desta forma é possível identificar os produtos de forma única entre a lista de produto, a lista do carrinho de compras e da lista de desejos utilizando um filtro por categoria.\
-  : O campo categoria aceita mais de uma categoria.\
-  : Crie um item da seguinte forma:\
-    : let item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);
+    Utilize a função 'createItem(code, name, category, price, quantity)' no arquivo './services/item.js'.\ 
+    Desta forma é possível identificar os produtos de forma única entre a lista de produto, a lista do carrinho de compras e da lista de desejos utilizando um filtro por categoria.\
+    O campo categoria aceita mais de uma categoria.\
+    Crie um item da seguinte forma:\
+        let item1 = await createItem(0,"hotwheels ferrari",["toys", "miniature"], 20.99, 5);
   
 - A função de adicionar item ao carrinho de compras foi modificada.
   
