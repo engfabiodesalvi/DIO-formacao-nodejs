@@ -134,7 +134,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 
 - A foi adicinado a função busca por código.
 
-  A função utiliza o código d item na busca deste item nas listas: de produtos, do carrinho de compras e de desejos.
+  A função utiliza o código do item na busca deste item nas listas: de produtos, do carrinho de compras e de desejos.
 
   
 <!--START_SECTION:footer-->
