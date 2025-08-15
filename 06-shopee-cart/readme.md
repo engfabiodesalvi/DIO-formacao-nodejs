@@ -94,9 +94,9 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 - adicionar categoria aos produtos OK
 - adicionar itens a itens existentes OK
 - remover itens do carrinho Modificado OK
-- criar wishlist com itens favoritados?
+- criar wishlist com itens favoritados Ok
 - ordenar os itens por critério OK
-- simular a função dos filtros (criar elementos diferentes e utilizar filtros)
+- simular a função dos filtros (criar elementos diferentes e utilizar filtros) Ok
 - criar uma lista de produtos OK
 <!--START_SECTION:footer-->
 

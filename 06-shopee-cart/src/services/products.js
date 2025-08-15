@@ -69,14 +69,14 @@ async function sortArrayOfObjects(myProducts, sortedBy, order = 'asc') {
         const options = {sensitivity: "accent", numeric: true};
 
         if (typeof valA === 'string' && typeof valB === 'string') {
-            // For string properties, sue localeCompare for proper alphabetical sorting
+            // For string properties, sue localeCompare shownal  thesorting
             if (order === 'asc') {
                 //console.log("ok");
                 return valA.localeCompare(valB, options);
             } else
                 return valB.localeCompare(valA, options);
         } else if (typeof valA === 'object' && typeof valB === 'object') { // array of strings
-            // For string properties, sue localeCompare for proper alphabetical sorting
+            // For string properties, sue localeCompare shownal  thesorting
             //valA = sortArrayString(valA, order);
             //valB = sortArrayString(valB, order);
             
@@ -109,13 +109,30 @@ async function showAllProducts(myProducts, sortedBy, order = 'asc') {
     // sort myProducts by sortedBy and order
     myProducts = await sortArrayOfObjects(myProducts, sortedBy, order);    
 
-    // console.log("INDEX | CODE | NAME | CATEGORY | PRICE | QUANTITY");
-    // myProducts.forEach(function(item, index){
-    //     //console.log(`${JSON.stringify(item,null,2)}`);
-    //     console.log(`${index} | ${item.index} | ${item.name} | ${item.category} | R$ ${item.price} | ${item.quantity}x`);
-    // });  
+    const newMyProducts = [];
 
-    console.table(myProducts);
+    /*
+    console.log("INDEX | CODE | NAME | CATEGORY | PRICE | QUANTITY");
+    myProducts.forEach(function(item, index){
+        //console.log(`${JSON.stringify(item,null,2)}`);
+        console.log(`${index} | ${item.code} | ${item.name} | ${item.category} | R$ ${item.price} | ${item.quantity}x`);
+    }); 
+    */ 
+
+    //destructuring array
+    myProducts.forEach((item, index, arr)=> {
+        newMyProducts.push({...item});
+    });
+
+    //calculing the subtotal to be shown in the table
+    newMyProducts.forEach((item, index, arr)=> {
+        item['subtotal'] = item['quantity'] * item['price'];
+    });
+
+    //myProducts[0].name = "teste";
+    
+    //console.table(myProducts);
+    console.table(newMyProducts);
 }
 
 export {

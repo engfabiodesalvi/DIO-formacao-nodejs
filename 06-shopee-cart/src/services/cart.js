@@ -7,27 +7,38 @@ async function addItem(userCart, item) {
   userCart.push(item);
 }
 
+// adding n itens
+async function addItems(userCart, item, numItems) {
+  for(let items = 0; items < numItems; items++){
+    await addOneItem(userCart, item);
+  }
+}
+
 // adding one item per time!
 async function addOneItem(userCart, item) { 
   // first, checking if the item is in the list.
   let indexFound = -1;
   //console.log("");
   userCart.forEach(function(itemCart, index, arr){ // or (item, index, arr) => {
-    if (itemCart.index === item.index) {
+    if (itemCart.code === item.code) {
       indexFound = index;   
-      //console.log(`${itemCart.index} | ${itemCart.name} | ${itemCart.quantity}`);   
+      //console.log(`${itemCart.code} | ${itemCart.name} | ${itemCart.quantity}`);   
     }
   });
 
   if (item.quantity > 0) {
     item.quantity -= 1;
     if (indexFound >= 0 ) {          
-      userCart[indexFound].quantity += 1;
-      //console.log(`${userCart[indexFound].index} | ${userCart[indexFound].name} | ${userCart[indexFound].quantity}`); 
+      userCart[indexFound].quantity += 1;      
+      //console.log(`${userCart[indexFound].code} | ${userCart[indexFound].name} | ${userCart[indexFound].quantity}`); 
     } else {
+      //destructuring using spread operator
       userCart.push({...item});
       userCart[userCart.length-1].quantity = 1;
     }
+    console.log(`Adicionando 1 item ao carrinho: ${item.code} - ${item.name} - ${item.category}.`);
+  } else {
+    console.log(`Item não adicionado ao carrinho: ${item.code} - ${item.name} - ${item.category}.`);
   }
 }
 
@@ -39,19 +50,28 @@ async function calculateTotal(userCart) {
   console.log(`🎁Total: ${result}`);
 }
 
+// -> removing n items
+async function removeItems(userCart, item, numItems) {
+  for(let items = 0; items < numItems; items++){
+    await removeOneItem(userCart, item);
+  }
+}
+
 // -> removing one item
 async function removeOneItem(userCart, item) {
-  const indexCart = userCart.findIndex((itemCart) => itemCart.index === item.index);
+  const indexCart = userCart.findIndex((itemCart) => itemCart.code === item.code);
 
   if (indexCart >= 0) {    
-    if(userCart[indexCart].quantity > 0) {
+    if(userCart[indexCart].quantity > 1) {
       item.quantity += 1;
       userCart[indexCart].quantity -= 1;
+      console.log(`Removendo 1 item do carrinho: ${item.code} - ${item.name} - ${item.category}.`);
     }else{
       userCart.splice(indexCart, 1);      
+      console.log(`Exluindo item do carrinho: ${item.code} - ${item.name} - ${item.category}.`);
     }    
   }else{
-    console.log("Item não encontrado!");
+    console.log(`Item não encontrado: ${item.code} - ${item.name} - ${item.category}.`);
   }  
 
 }
@@ -72,7 +92,7 @@ async function removeItem(userCart, item) {
 
   //2. Caso não encontre o item
   if (indexFound == -1) {
-    console.log("item não encontrado");
+    console.log(`item não encontrado: ${item.code} - ${item.name} - ${item.category}.`);
     return;
   }
 
@@ -92,6 +112,7 @@ async function removeItem(userCart, item) {
 // ✅ mostra todos os items do carrinho
 async function displaycart(userCart) {
   console.log("\nShopee cart list:");
+  /*
   userCart.forEach((item, index) => {
     console.log(
       `${index + 1}. ${item.name} - R$ ${item.price} | ${
@@ -99,9 +120,21 @@ async function displaycart(userCart) {
       }x | Subtotal = ${item.subtotal}`
     );
   });
+  */
+  const newUserCart = [];
+  
+  //destructuring using spread operator (...)
+  userCart.forEach((item, index, arr) => {
+    newUserCart.push({...item});
+    newUserCart[newUserCart.length-1].subtotal = newUserCart[newUserCart.length-1].price * newUserCart[newUserCart.length-1].quantity;
+  });
+  console.table(newUserCart);
 }
 
 export { 
-  addItem, addOneItem, calculateTotal,
-  deleteItem, removeItem, removeOneItem, displaycart 
+  addItem, addOneItem, addItems,
+  calculateTotal,
+  deleteItem, 
+  removeItem, removeOneItem, removeItems,
+  displaycart 
 };
