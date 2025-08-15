@@ -14,7 +14,7 @@ const myProducts = await getProducts();
 
 // show all products
 console.log("\n-----------------------------------");
-await showAllProducts(myProducts, "name");
+await showAllProducts(myProducts, "name", "asc");
 
 //criando dois itens
 //const item1 = await createItem(0,"hotwheels ferrari",["toys"], 20.99, 5);
