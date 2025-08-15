@@ -51,6 +51,9 @@
             >
         </a>
     </td>
+  </tr>  
+  <tr>
+    
   </tr>
 </thead>
 </table>
@@ -89,15 +92,51 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 - Como organizar pensamento lógico e funcional
 - Base para organizar projetos
 
-## Modificações
-- adicionar código aos produtos OK
-- adicionar categoria aos produtos OK
-- adicionar itens a itens existentes OK
-- remover itens do carrinho Modificado OK
-- criar wishlist com itens favoritados Ok
-- ordenar os itens por critério OK
-- simular a função dos filtros (criar elementos diferentes e utilizar filtros) Ok
-- criar uma lista de produtos OK
+## 💪 Modificações Realizadas por Fabio Toledo Bonemer De Salvi
+- Foi adicionado uma função que gera uma lista de produtos.
+
+- Foi adicionado o campo 'code' ao objeto 'item'.
+
+  Desta forma é possível identificar os produtos de forma única entre a lista de produto, a lista do carrinho de compras e da lista de desejos.
+  
+- Foi adicionado o campo 'category' ao objeto 'item'.
+
+  Desta forma é possível utilizar uma função que filtra os itens utilizando campo categoria para o cliente pder escolher o produto.
+  Este campo aceita mais de um item, podendo cada item ser adicionado em mais de uma categoria.
+  
+- A função adicionar item ao carrinho de compras foi modificada.
+
+  A função verifica se um item já foi adicionado ao carrinho de compras.
+  Se o item já foi adicionado ao carrinho de compras, ele adicionará mais um item caso possua este item em estoque.
+  Ao adicionar um item ao carrinho de compras é removido um item do estoque.
+  Foi adicionado uma função que adiciona 'n' itens de uma única vez. Esta função só adicionará os itens caso possua unidades em estoque.
+  
+- A função remover item do carrinho de compras foi modifica.
+
+  A função busca um produto no carrinho de compras realizando a remoção de um item.
+  Caso o item fique com quantidade nula ele será removido do carrinho de compras.
+  Cada item removido da lista de compras retrnará á lista de prdutos.
+  Foi adicionado uma função que remove 'n' itens de uma única vez. Esta função só removerá os itens caso possua unidades na lista de compras.
+
+- A função adicionar item á lista de desejos foi adicionada.
+
+  A função verifica se um item já foi adicionado á lista de desejos.
+  O item será adicionado á lista de desejos caso não seja encntrado.
+  
+- A função remover item á lista de desejos foi adicinada.
+
+  A função busca um produto na lista de desejos.
+  O item será removido da lista de desejos caso seja encontrado.
+    
+- Os produtos podem ser ordenados utilizando qualquer um dos atributos do objeto item.
+
+   Deve ser defino o atributo do item a ser ordenado e a ordem ascendente ou descendente dos dados na lista.
+
+- A foi adicinado a função busca por código.
+
+  A função utiliza o código d item na busca deste item nas listas: de produtos, do carrinho de compras e de desejos.
+
+  
 <!--START_SECTION:footer-->
 
 <br />
