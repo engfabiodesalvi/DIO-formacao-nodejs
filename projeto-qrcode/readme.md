@@ -95,11 +95,11 @@ Foi utilizado a função assincrona para acessar o prompt.
 
 Exemplo:
 
-    Antes:\
+    Antes:
       prompt.get(promptSchemaMain, promptSelectMenu);  
 
-    Depois:\
-      inputPrompt = await prompt.get(promptSchemaMain);\
+    Depois:
+      inputPrompt = await prompt.get(promptSchemaMain);
       await selectMenu(inputPrompt['select']);
 
 # Módulo Gerador de PASSWORD
@@ -107,25 +107,26 @@ Exemplo:
 Este módulo utiliza as configurações do arquivo .env para gerar um password aleatório a cada acesso.\
 Foram realizadas modificações nas variáveis dentro do arquivo .env e realizadas chamadas à função que gera um novo password para ver o resultado.
 
-* Exemplo 1.\
+* Exemplo 1.
   - UPPERCASE_LETTERS=true
   - LOWERCASE_LETTERS=true
   - NUMBERS=true
   - SPECIAL_CHARACTERS=true
   - PASSWORD_LENGTH=24
 
-  > Password 1 gerado: %DMAIcNuY4fBE*)tT74$w#*%
+  > Password 1 gerado: %DMAIcNuY4fBE*)tT74$w#*%\
   > Password 2 gerado: WAOZ*H^9WkO!KH4I@f5O9Hz&
 
-# Módulo Gerador QRCode
+### Módulo Gerador QRCode
 
-O acesso ao prompt foi modificado para a forma assincrona:\
-    const promptInput = await prompt.get(promptSchemaQRCode);\
+O acesso ao prompt foi modificado para a forma assincrona:
+    const promptInput = await prompt.get(promptSchemaQRCode);
     await handle(promptInput);    
 
 Exemplo: 
   - Texto: https://www.dio.me/
   - QRCode (opção 2 - terminal):
+  
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\
 █ ▄▄▄▄▄ █   █▄ ▄▄ █ ▄▄▄▄▄ █\
 █ █   █ █ ▀▄ █▀▄▄▀█ █   █ █\
@@ -139,9 +140,9 @@ Exemplo:
 █ ▄▄▄▄▄ █▀▄▄ ▄ ▄█ █▄█ ▀▀█▀█\
 █ █   █ █▄▀▄█▄ ▀█▄▄  ▄▄ ▀ █\
 █ █▄▄▄█ █▀▄ █▀█▀▀▄▄ ▀▀ ▀ ██\
-█▄▄▄▄▄▄▄█▄█▄▄█▄▄▄██████▄▄▄█\
+█▄▄▄▄▄▄▄█▄█▄▄█▄▄▄██████▄▄▄█
 
-# Módulo Gerador de Faturas (Módulo incluído)
+### Módulo Gerador de Faturas (Módulo incluído)
 
 O módulo gerador de faturas foi inclído ao kit de ferramentas de e-commerce.
 
@@ -162,7 +163,7 @@ Todas essas informações são utilizadas em uma função que gera uma fatura em
 
 O arquivo pdf de exemplo esta dentro da pasta download.
 
-# Estrutura do projeto
+### Estrutura do projeto
 
 O projeto gerador de faturas foi estruturado para atender à organização e separação de funções proposta pelo instrutor Felipe, ficando da seguinte forma:
 
