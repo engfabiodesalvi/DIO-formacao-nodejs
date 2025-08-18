@@ -6,8 +6,10 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     doc.pipe(fs.createWriteStream(path));
 
     // header
-    console.log(invoice.business.logo)
-    console.log(fs.existsSync(invoice.business.logo));
+    //console.log(invoice.business.logo)
+    //console.log(fs.existsSync(invoice.business.logo));
+    
+    // company logo
     if (invoice.business.logo && fs.existsSync(invoice.business.logo)) {
         doc.image(invoice.business.logo, 50, 45, { width: 100});
     }
@@ -18,7 +20,7 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
         .moveDown(0.5)
         .fontSize(10)
         .text(invoice.business.address, 160, 75)
-        .text(`Tax ID: ${invoice.business.taxId}`, 160, 90)
+        .text(`CPF/CNPJ: ${invoice.business.taxId}`, 160, 90) // Tax ID (EUA) // CPF/CNPJ (Brazil)
         .moveDown();
 
     doc.moveDown(2);
@@ -26,11 +28,11 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     // customer info
     doc
         .fontSize(12)
-        .text(`Invoice Number: ${invoice.metadata.number}`, { align: "right" })
-        .text(`Invoice Date: ${invoice.metadata.date}`, { align: "right" })
+        .text(`Número da fatura: ${invoice.metadata.number}`, { align: "right" }) // Invoice number
+        .text(`Data da fatura: ${invoice.metadata.date}`, { align: "right" })     // Invoice date
         .moveDown()
         .fontSize(12)
-        .text(`Bill To:`)
+        .text(`Fatura para:`) // Bill t
         .text(invoice.customer.name)
         .text(invoice.customer.address)
         .moveDown();
@@ -44,36 +46,37 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     
     doc
         .fontSize(12)
-        .text("Descrition", itemX, tableTop)
-        .text("Qty", qtyX, tableTop)
-        .text("Unit PriceX", priceX, tableTop)
+        .text("Descrição", itemX, tableTop)
+        .text("Qtd", qtyX, tableTop)
+        .text("Preço Unit.", priceX, tableTop)
         .text("Subtotal", subtotalX, tableTop);
 
     let rowY = tableTop + 20;
 
     invoice.items.forEach((item) => {
-        console.log(JSON.stringify(item));
+        //console.log(JSON.stringify(item));
         doc
             .fontSize(10)
             .text(item.description, itemX, rowY)
             .text(item.quantity, qtyX, rowY)
-            .text(`$${item.price.toFixed(2)}`, priceX, rowY)
-            .text(`$${(item.quantity * item.price).toFixed(2)}`, subtotalX, rowY);
+            .text(`R$ ${item.price.toFixed(2)}`, priceX, rowY)
+            .text(`R$ ${(item.quantity * item.price).toFixed(2)}`, subtotalX, rowY);
         rowY += 20;        
     });
 
     // totals
     rowY += 20;
+    const totalsX = 400;
     doc
         .fontSize(12)
-        .text(`Subtotal: $${invoice.subtotal.toFixed(2)}`, subtotalX, rowY)
-        .text(`Tax: $${invoice.tax.toFixed(2)}`, subtotalX, rowY + 20)
-        .text(`Total: $${invoice.total.toFixed(2)}`, subtotalX, rowY + 40);
+        .text(`Subtotal: R$ ${invoice.subtotal.toFixed(2)}`, totalsX, rowY)
+        .text(`Juros: R$ ${invoice.tax.toFixed(2)}`, totalsX, rowY + 20)
+        .text(`Total: R$ ${invoice.total.toFixed(2)}`, totalsX, rowY + 40);
 
     // QR code
     if (qrBuffer) {
         doc.moveDown(6);
-        doc.fontSize(12).text("Scan to Pay:", { align: "left" });
+        doc.fontSize(12).text("Digitalize para pagar:", { align: "left" }); // Scan to pay
         doc.image(qrBuffer, { width: 120, height: 120, align: "left" });
     }
 
@@ -81,7 +84,7 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     doc
         .moveDown(2)
         .fontSize(10)
-        .text("Thank you for your business!", { align: "center"});
+        .text("Obrigado pela sua preferência!", { align: "center"}); // Thank you for your business!
 
     // end file
     doc.end();

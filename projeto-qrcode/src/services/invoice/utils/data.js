@@ -3,7 +3,7 @@ export const invoiceData = {
     name: "Fabio's E-Shop",
     address: "123 Market St, São Paulo, Brazil",
     taxId: "123.456.789-00", // CPF/CNPJ in Brazil
-    logo: "logo.png", // optional
+    logo: process.env.PATH_LOGO, // optional
   },
   customer: {
     name: "John Doe",

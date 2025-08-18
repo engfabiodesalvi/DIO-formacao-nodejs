@@ -27,7 +27,7 @@ import getNameFile from "./utils/nameInvoicePDF.js";
 //async function generateInvoice(data, outputPath) {
 async function generateInvoice(dataInvoice = invoiceDataEmpty) {
 
-  //dataInvoice = invoiceData; // example data
+  dataInvoice = invoiceData; // example data
 
   console.log(chalk.blue.bold.underline("\n## Gerador de Faturas ##"));
 
@@ -44,10 +44,10 @@ async function generateInvoice(dataInvoice = invoiceDataEmpty) {
   
 
   // Processing
-  const totals = calculateTotals(dataInvoice['items'], dataInvoice.taxRate || process.env.TAX_RATE);
+  const totals = calculateTotals(dataInvoice['items'], dataInvoice.taxRate || parseInt(process.env.TAX_RATE));
   dataInvoice['subtotal'] = totals['subtotal']; // total without taxes
   dataInvoice['tax'] = totals['tax'];           // total taxes
-  dataInvoice['subtotal'] = totals['subtotal']; // total with taxes
+  dataInvoice['total'] = totals['total']; // total with taxes
 
   const template = chooseTemplate();
 
@@ -69,6 +69,7 @@ async function generateInvoice(dataInvoice = invoiceDataEmpty) {
   console.log(JSON.stringify(invoice, null, 2));
 
   // Generate QR if payment link provided
+  console.log(JSON.stringify((invoice.payment && invoice.payment.link), null, 2));
   let qrBuffer = null;
   if (invoice.payment && invoice.payment.link) {
     qrBuffer = await generateQrBuffer(invoice.payment.link);

@@ -83,7 +83,7 @@ export const promptSchemaInvoice = {
         },
         {
             name: "price",
-            description: chalk.yellow.bold( "Preço:"),
+            description: chalk.yellow.bold( "Preço unitário:"),
             pattern: /^(?:[1-9]\d*|0\.\d*[1-9]\d*)(?:\.\d+)?$/, // REGEX syntax for positive floating numbers
             message: chalk.red.italic("Entre com um valor decimal."),
             required: true,   

@@ -33,7 +33,7 @@ export async function getPaymentInfo(data) {
 
     return {
         number: dataPayment.method || "PIX",
-        date: dataPayment.link || `https://example.com/pay/${data['metadata']['number']}`,
+        link: dataPayment.link || `https://example.com/pay/${data['metadata']['number']}`,
     };
 };
 

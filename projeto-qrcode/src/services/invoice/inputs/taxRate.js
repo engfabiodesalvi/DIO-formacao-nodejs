@@ -18,9 +18,7 @@ export async function getTaxRate(data) {
 
     console.log(JSON.stringify(dataTaxRate, null, 2));                      
     
-    return {
-        taxRate: dataTaxRate.taxRate || process.env.TAX_RATE
-    };
+    return  dataTaxRate.taxRate || parseInt(process.env.TAX_RATE) ;
 };
 
 export default getTaxRate;
