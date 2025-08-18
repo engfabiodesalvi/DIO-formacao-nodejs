@@ -3,8 +3,8 @@ import chalk from "chalk";
 
 //async function handle(err, result) {
 async function handle(promptResult) {
-  const err = promptResult['err'];
-  const result = promptResult['result'];
+  //const err = promptResult['err'];
+  //const result = promptResult['result'];
 
   //console.log(JSON.stringify(promptResult, null, 2));
   

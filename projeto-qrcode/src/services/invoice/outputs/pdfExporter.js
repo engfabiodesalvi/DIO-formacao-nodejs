@@ -6,6 +6,8 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     doc.pipe(fs.createWriteStream(path));
 
     // header
+    console.log(invoice.business.logo)
+    console.log(fs.existsSync(invoice.business.logo));
     if (invoice.business.logo && fs.existsSync(invoice.business.logo)) {
         doc.image(invoice.business.logo, 50, 45, { width: 100});
     }
@@ -50,6 +52,7 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     let rowY = tableTop + 20;
 
     invoice.items.forEach((item) => {
+        console.log(JSON.stringify(item));
         doc
             .fontSize(10)
             .text(item.description, itemX, rowY)
@@ -78,7 +81,10 @@ async function exportInvoicePDF(invoice, qrBuffer, path) {
     doc
         .moveDown(2)
         .fontSize(10)
-        .text("Thank you you fr your business!", { align: "center"});
+        .text("Thank you for your business!", { align: "center"});
+
+    // end file
+    doc.end();
 }
 
 export {

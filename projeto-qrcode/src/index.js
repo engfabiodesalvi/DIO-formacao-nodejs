@@ -15,7 +15,7 @@ import createPassword from "./services/password/create.js";
 async function main() {
 
   // defining initial settings
-  const promptOptions = {message: " ", delimiter: chalk.yellow.bold("->")};
+  const promptOptions = {message: chalk.yellow.bold(">"), delimiter: chalk.yellow.bold(" ")};
   prompt.start(promptOptions);
   
   // for synchrnous use

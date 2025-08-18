@@ -1,4 +1,4 @@
 // multiple invoice styles
-export default chooseTemplate() {
+export default function chooseTemplate() {
     return "default";
 }
