@@ -12,7 +12,7 @@ async function createQRCode() {
 
   prompt.start();
 
-  // syncronous - problems wrking inside other syncronus prompt
+  // syncronous - problems working inside other syncronus prompt
   //prompt.get(promptSchemaQRCode, handle);
   //prompt.get(promptQRCode, handle);
 
