@@ -88,7 +88,7 @@ Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 
 ## 💪 Modificações realizadas por Fabio Toledo Bonemer De Salvi
 
-# Menu principal
+### Menu principal
 
 O menu principal foi incluído em um loop para que a aplicação não encerre, esperando que cada aplicação execute sua tarefa, sendo possível sair da aplicação escolhendo a "opção sair" digitando o valor 0.\
 Foi utilizado a função assincrona para acessar o prompt.
@@ -102,7 +102,7 @@ Exemplo:
       inputPrompt = await prompt.get(promptSchemaMain);
       await selectMenu(inputPrompt['select']);
 
-# Módulo Gerador de PASSWORD
+### Módulo Gerador de PASSWORD
 
 Este módulo utiliza as configurações do arquivo .env para gerar um password aleatório a cada acesso.\
 Foram realizadas modificações nas variáveis dentro do arquivo .env e realizadas chamadas à função que gera um novo password para ver o resultado.
