@@ -5,17 +5,19 @@ import promptSchemaInvoice from "../../../prompts-schema/prompt-schema-invoice.j
 export default async function getBusinessInfo(data) {
 
     let dataBusiness = {...data};    
-    let promptSchema = {...promptSchemaInvoice['business']};
+    let promptSchema = {
+        name: promptSchemaInvoice['business'][3].name,
+        description: promptSchemaInvoice['business'][3].description,
+        required:  promptSchemaInvoice['business'][3].required
+    };
 
     //console.log(JSON.stringify(dataBusiness, null, 2));
 
     console.log(chalk.yellow.bold( "\n# Entre com os dados comercias #"))
 
-    prompt.start()
-
     dataBusiness['logo'] = process.env.PATH_LOGO;
 
-    promptSchema[3]['description'] += 
+    promptSchema['description'] += 
         chalk.blue.italic(`\n(Tecle ENTER para: ${dataBusiness['logo']})\n:`);
 
     // assyncronous
@@ -32,9 +34,8 @@ export default async function getBusinessInfo(data) {
     ).taxId;
 
     dataBusiness['logo'] = (
-        await prompt.get(promptSchema[3])
-    ).logo;
-    
+        await prompt.get(promptSchema)
+    ).logo;    
     
     //console.log(JSON.stringify(promptSchemaInvoice['business'], null, 2));
 

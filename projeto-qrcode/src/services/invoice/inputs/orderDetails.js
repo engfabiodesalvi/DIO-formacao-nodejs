@@ -9,11 +9,9 @@ export async function getOrderDetails(items = []) {
     let itemsData = [...items];
     let itemData = [];
 
-    console.log(JSON.stringify(itemsData, null, 2));
+    //console.log(JSON.stringify(itemsData, null, 2));
 
     console.log(chalk.blue.bold.underline( "\n# Entre com os itens do pedido #"));
-
-    prompt.start();
 
     let inputOption = 1;
     while(inputOption == 1) {
@@ -40,7 +38,7 @@ export async function getOrderDetails(items = []) {
                     (await prompt.get(promptSchemaInvoice['items'][3])                
                 ).price) * 100) / 100;
 
-            console.log(JSON.stringify(itemData, null, 2));            
+            //console.log(JSON.stringify(itemData, null, 2));            
             itemsData.push({...itemData});
         }
 

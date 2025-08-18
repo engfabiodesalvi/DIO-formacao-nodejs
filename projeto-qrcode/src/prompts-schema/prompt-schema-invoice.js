@@ -22,7 +22,7 @@ export const promptSchemaInvoice = {
             message: chalk.red.italic("Obrigatótio"),
         },
         {
-            name: "businessLogo",
+            name: "logo",
             description: chalk.yellow.bold( "Logotipo(opcional):"), 
             required: false,        
         },
@@ -63,7 +63,7 @@ export const promptSchemaInvoice = {
     items: [
         {
             name: "question",
-            description: chalk.yellow.bold(">> Adicionar item?\n(1 - SIM) (2 - NÃO)\nDigite a opção desejada:"),
+            description: chalk.yellow.bold("\n>> Adicionar item?\n(1 - SIM) (2 - NÃO)\nDigite a opção desejada:"),
             pattern: /^[1-2]+$/, // REGEX syntax
             message: chalk.red.italic("Escolha apenas entre 1 ou 2."),
             required: true,            

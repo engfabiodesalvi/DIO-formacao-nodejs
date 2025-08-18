@@ -6,15 +6,26 @@ import prompt from "prompt";
 
 export async function getMetadataInfo(data) {
     let dataMetadata = {...data};
-    let promptSchema = {...promptSchemaInvoice['metadata']};
+    let promptSchema = [
+        {
+            name: promptSchemaInvoice['metadata'][0].name,
+            description: promptSchemaInvoice['metadata'][0].description,
+            required: promptSchemaInvoice['metadata'][0].required,
+            message: promptSchemaInvoice['metadata'][0].message,
+        },
+        {
+            name: promptSchemaInvoice['metadata'][1].name,
+            description: promptSchemaInvoice['metadata'][1].description,
+            required: promptSchemaInvoice['metadata'][1].required,
+            message: promptSchemaInvoice['metadata'][1].message,
+        }
+    ];
     const generateNumber = generateInvoiceNumber();
     const generateDate = generateInvoiceDate();
 
     //console.log(JSON.stringify(dataMetadata, null, 2));
 
     console.log(chalk.yellow.bold( "\n# Entre com os metadados do pedido #"))
-
-    prompt.start()
 
     dataMetadata['number'] = generateNumber;
     dataMetadata['date'] = generateDate;
@@ -32,7 +43,7 @@ export async function getMetadataInfo(data) {
     dataMetadata['date'] = (
         await prompt.get(promptSchema[1])
     ).date;
-
+    
     return {
         number: dataMetadata.number || generateNumber,  // if typed ENTER
         date: dataMetadata.date || generateDate,        // if typed ENTER

@@ -6,19 +6,30 @@ import prompt from "prompt";
 
 export async function getPaymentInfo(data) {
     let dataPayment = {...data['payment']};
-    let promptSchema = {...promptSchemaInvoice['payment']};
+    let promptSchema = [
+        {
+            name: promptSchemaInvoice['payment'][0].name,
+            description: promptSchemaInvoice['payment'][0].description,
+            required: promptSchemaInvoice['payment'][0].required,
+            message: promptSchemaInvoice['payment'][0].message,        
+        },
+        {
+            name: promptSchemaInvoice['payment'][1].name,
+            description: promptSchemaInvoice['payment'][1].description,
+            required: promptSchemaInvoice['payment'][1].required,
+            message: promptSchemaInvoice['payment'][1].message,        
+        },        
+    ];
 
     console.log(chalk.yellow.bold( "\n# Entre com os dados de pagamento #"))
-
-    prompt.start()
 
     dataPayment['method'] = "PIX";
     dataPayment['link'] = `https://example.com/pay/${data['metadata']['number']}`;
 
-    console.log(JSON.stringify(dataPayment, null, 2));
+    //console.log(JSON.stringify(dataPayment, null, 2));
 
     promptSchema[0]['description'] += 
-        chalk.blue.italic(`\n(Tecle ENTER para: ${dataPayment['method']})\n:`);
+        chalk.blue.italic(`\n(Tecle ENTER para: ${dataPayment['method']})\n:`);        
     promptSchema[1]['description'] +=
         chalk.blue.italic(`\n(Tecle ENTER para: ${dataPayment['link']})\n:`);
 
